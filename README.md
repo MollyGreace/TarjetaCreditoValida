@@ -11,7 +11,7 @@
 
 ##### Diagrama de Flujo
 
-[Diagrama de Flujo](http://subefotos.com/ver/?db8eb33c3244335258273a80f0318dbeo.png)
+![Diagrama de Flujo](C:\Users\Molly\Documents\PRODUCTO FINAL\Tarjeta de Credito\assets\docs.png)
 
 ##### Pseudocódigo
 ```
