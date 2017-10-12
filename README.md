@@ -1,76 +1,63 @@
-# TARJETA DE CRÉDITO VÁLIDA
+# Producto Final
 
-  Crea una web que pida, por medio de un `prompt()`, el número de una tarjeta de crédito y confirme su validez según el algoritmo de  Luhn.   Lee este blog que explica cómo funciona el [algoritmo de Luhn](https://www.quobit.mx/asi-funciona-el-algoritmo-de-luhn-para-generar-numeros-de-tarjetas-de-credito.html).
+## Tarjeta de Crédito Válida:
 
-## Consideraciones Específicas
+En este producto final se requiere crear una función **(isValidCard)** para validar los números de una tarjeta de crédito.
 
-  * Tu código debe estar compuesto por 1 función: `isValidCard`
-  * El usuario no debe poder ingresar un campo vacío
+Pasos:
+1. La web solicita al usuario que ingrese los números de su tarjeta de crédito por medio de un prompt ().
+2. La web devuelve una respuesta en la pantalla por medio de un documet.write ().
 
-## Desarrollo
+### Pseudocódigo
 
-##### Diagrama de Flujo
+~~~
+//Solicitando al usuario su número de tarjeta de crédito
+Hacer {    
+    Obtener número de tarjeta de crédito;
+}Mientras (No se obtenga un número);
 
-[Diagrama de Flujo](http://subefotos.com/ver/?35c74c259d083b05602fa2a02c2de1cbo.png)
+//Llamando a la función
+isValidCard (número de tarjeta de crédito)
 
+//Creando función para validar tarjeta
+funcion isValidCard (cuerda){
 
-##### Pseudocódigo
-```
+    Arreglo = []; //Creando un arreglo donde se almacenarán los números de la tarjeta en orden inverso
+    Para i = 0 Hasta 'longitud de cuerda'-1 Con Paso i+1 Hacer
+          Agregar en el arreglo los números de la cuerda en orden inverso
+    Fin Para
 
-Leer lista_de_variables
-//Definiendo variables
- str<-'Ingrese nro de TC(16 números)';
- arr<-str;
- 
-//Validación de ingreso de datos vacío
-Si str es igual a vacío entonces
-  str<-str;
-FinSi
-	
-//Devuelve el valor de arreglo ingresado al revés
-Función reverse(arr)
- Para i<-0 Hasta str con Paso 1 Hacer
-  Escribir arr.splice(i, 0, arr.pop());
- FinPara
-FinFuncion
-	
-//Valida el nro de la TC
-Función isValidCard(arr){
-	double<-true;
-	numArr<-arreglo;
-	sumTotal<-0;
-	Leer Función reverse;
+    //Obteniendo números en posición par
+    Para j = 0 Hasta 'longitud de arreglo'-1 Con Paso j+2 Hacer
 
-	Para i<-1 Hasta arrReverse con Paso 2 Hacer
-	 digit<-arrReverse[i+2];
-	 product<-0;
-	 si double es true entonces
-	  product<-digit*2;
-	  digit<-toSingle(digit);
-	  double<-false;
-	 SiNo
-	  double<-true;
-	 FinSi
-	 Escribir numArr.push(digit);			 
-	FinPara
-	
-	Para i<-0 Hasta numArr.length con Paso 1 Hacer
-	 sumTotal<-numArr[i];
-	 Escribir diff<-sumTotal%10;
-	 Escribir diff<-0;
-FinFuncion
-	
-//Valida si el numero es mayor a 9 suma cada elemento del número y retorna un nuevo valor de un sólo dígito.
-	
-Función toSingle(digit)
-	Si digit es mayor a 9 entonces
-		Escribir tmp<-digit.toString();
-		d1<-parseInt(tmp.charAt(0));
-		d2<-parseInt(tmp.charAt(1));
-		Escribir d1+d2;
-	SiNo
-		Escribir digit;
-	FinSi
-FinFuncion
+      Si NumeroDePosicionPar*2 >= 10 Entonces
+        Crear variable que almacena la multiplicación
+        //Si el valor de la multiplicación es de dos dígitos: sumar digitos y luego reemplazar en el Arreglo
+        Reemplazar en el Arreglo el valor de la suma de los digitos
+      Si no Entonces
+        //Si el valor de la multiplicación es de un dígito, se reemplaza directamente en el Arreglo
+        Reemplazar en el Arreglo el valor de la multiplicación
+      Fin Si
 
-```
+      //Sumando los digitos de la tarjeta
+      Variable suma = 0
+      Para k = 0 Hasta 'longitud de arreglo'-1 Con Paso k+1 Hacer
+        suma = suma + 'NumeroDelArreglo en posicion i'
+        Fin Para
+    Fin Para
+
+    //Validando tarjeta
+    Si suma mod 10 = 0 Entonces
+      Retorna mensaje: 'Tu número de tarjeta es VÁLIDA'
+    Si no Entonces
+      Retorna mensaje: "Ingrese su número de tarjeta de crédito"
+    Fin Si
+
+Fin Funcion
+~~~
+
+### Diagrama de flujo
+
+A continuación se detalla en un diagrama de flujo:
+
+[Diagrama Tarjeta de Crédito]()

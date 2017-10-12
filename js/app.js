@@ -1,64 +1,40 @@
-/*
-TARJETA DE CRÉDITO VÁLIDA
-*/
-
-//Definiendo variables
-var str = parseInt(prompt('Ingrese nro de TC(16 números):'));//ingresa los caracteres de la TC-16 digitos. 
-var arr = Array.from(str);//convierte el string a Array
-
-
-//Validación de ingreso de datos
-if(str === ''){
-  alert('Debe ingresar un valor');
-  str = parseInt(prompt('Ingrese nro de TC (16 números):'));
+//Solicitando al usuario su número de tarjeta de crédito
+ 
+do {
+  var inputCodeCard = prompt ('Ingrese su número de tarjeta de crédito \nNota: Recuerde que no puede ingresar espacios vacíos, letras o más de 16 dígitos');   
+}while (!inputCodeCard || isNaN(inputCodeCard) || (inputCodeCard.length !== 16));
+  
+//Creando función para validar tarjeta
+function isValidCard (inputCodeCard){
+  var arrReverse = []; //Creando un array donde se almacenarán los números de la tarjeta en orden inverso
+  for (var i = 0; i < inputCodeCard.length; i++){
+    arrReverse.unshift(parseInt(inputCodeCard[i]));
 }
-  
-  
-//Devuelve el valor de arreglo ingresado al revés
-function reverse(arr){
-  for(var i = 0; i < arr.length; i++){
-  arr.splice(i, 0, arr.pop());
+
+//Obteniendo números en posición par
+  for (var j = 1; j <arrReverse.length; j = j+2){
+    if (arrReverse[j]*2 >= 10){
+      var numberByTwo = arrReverse[j]*2;
+      //Si el valor de la multiplicación es de dos dígitos: sumar digitos y luego reemplzar en arrReverse
+      arrReverse[j] = parseInt(numberByTwo.toString(10)[0]) + parseInt(numberByTwo.toString(10)[1]);
+    }else{
+    //Si el valor de la multiplicación es de un dígito, se reemplaza en arrReverse
+      arrReverse[j] = arrReverse[j]*2;
+    }
+//Sumando los digitos de la tarjeta
+    var sum = 0;
+    for (var k = 0; k < arrReverse.length; k++){
+      sum = sum + arrReverse[k];
+    }
   }
-  return arr;
-}
-
-
-//Valida el nro de la TC
-function isValidCard(arr){
-  var double = true;
-  var numArr = [];
-  var sumTotal = 0;
-  var arrReverse = reverse(arr);
-  for(i=1; i<arrReverse.length; i+2){
-    var digit = arrReverse[i+2];
-    var product = 0;
-    if(double){
-      product = digit * 2;
-      digit = toSingle(digit);
-      double = false;
-    } else {
-      double = true;
-    }
-      numArr.push(digit);
-    }
-
-    for(i=0; i<numArr.length; i++){
-      sumTotal += numArr[i];
-    }
-    var diff = sumTotal % 10;
-    return (diff == "0");
-}
-
-//Valida si el numero es mayor a 9 suma cada elemento del número y retorna un nuevo valor de un sólo dígito.
-function toSingle(digit){
-  if(digit > 9){
-    var tmp = digit.toString();
-    var d1 = parseInt(tmp.charAt(0));
-    var d2 = parseInt(tmp.charAt(1));
-    return (d1 + d2); 
-  } else {
-    return digit;
+  
+//Validando tarjeta
+  if (sum % 10 === 0) {
+    return document.write ("Tu número de tarjeta es VÁLIDA");
+  }else{
+    return document.write ("Tu número de tarjeta es INVÁLIDA");
   }
 }
-
-isValidCard(arr);
+  
+//Llamando a la función
+isValidCard (inputCodeCard);
