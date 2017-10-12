@@ -40,9 +40,8 @@ _Obteniendo números en posición par_
        Si el valor de la multiplicación es de un dígito, se reemplaza directamente en el Arreglo
        Reemplazar en el Arreglo el valor de la multiplicación
      Fin Si
-
-_Sumando los dígitos de la tarjeta_
-~~~
+     
+Sumando los dígitos de la tarjeta
      Variable suma = 0
      Para k = 0 Hasta 'longitud de arreglo'-1 Con Paso k+1 Hacer
        suma = suma + 'NumeroDelArreglo en posicion i'
