@@ -67,5 +67,4 @@ Llamando a la función
 
 A continuación se detalla en un diagrama de flujo:
 
-[Diagrama Tarjeta de Crédito](http://subefotos.com/ver/?96799bd6a1bbfe315543bf37feed12e4o.jpg
-)
+[Diagrama Tarjeta de Crédito](http://subefotos.com/ver/?54e5e7cc331d90fabbb8050c430698a6o.jpg)
