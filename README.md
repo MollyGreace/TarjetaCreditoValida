@@ -19,12 +19,10 @@ _Solicitando al usuario su número de tarjeta de crédito_
 
 _Creando función para validar tarjeta_
 ~~~
- funcion isValidCard (cuerda){
-~~~
-~~~
+ funcion isValidCard (cadena){
    Arreglo = []; Creando un arreglo donde se almacenarán los números de la tarjeta en orden inverso
-   Para i = 0 Hasta 'longitud de cuerda'-1 Con Paso i+1 Hacer
-         Agregar en el arreglo los números de la cuerda en orden inverso
+   Para i = 0 Hasta 'longitud de cadena'-1 Con Paso i+1 Hacer
+         Agregar en el arreglo los números de la cadena en orden inverso
    Fin Para
 ~~~
 
@@ -43,7 +41,8 @@ _Obteniendo números en posición par_
        Reemplazar en el Arreglo el valor de la multiplicación
      Fin Si
 
-     Sumando los digitos de la tarjeta
+_Sumando los dígitos de la tarjeta_
+~~~
      Variable suma = 0
      Para k = 0 Hasta 'longitud de arreglo'-1 Con Paso k+1 Hacer
        suma = suma + 'NumeroDelArreglo en posicion i'
