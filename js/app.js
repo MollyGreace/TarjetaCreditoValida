@@ -30,9 +30,9 @@ function isValidCard (inputCodeCard){
   
 //Validando tarjeta
   if (sum % 10 === 0) {
-    return document.write ("Tu número de tarjeta es VÁLIDA");
+    return alert ("Tu número de tarjeta es VÁLIDA");
   }else{
-    return document.write ("Tu número de tarjeta es INVÁLIDA");
+    return alert ("Tu número de tarjeta es INVÁLIDA");
   }
 }
   
